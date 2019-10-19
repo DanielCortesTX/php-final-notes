@@ -1,30 +1,35 @@
 <?php 
 
-$file = 'quotes.txt';
+// classes
 
-// opening a file for reading and store the reference
-// $handle = fopen($file, 'r');
+// instantiate a class
 
-// read the file
-// echo fread($handle, filesize($file));
+class User {
+  public $email;
+  public $name;
 
-// read first 112 bytes of file
-// echo fread($handle, 112);
+  // This is how you make a constructor function
+  public function __construct($name, $email){
+    // $this->email = 'mario@gmail.com';
+    // $this->name = 'mario';
+    $this->email = $email;
+    $this->name = $name;
 
-//read a single line
-// echo fgets($handle);
-// echo fgets($handle);
+  }
 
-// read a single character
-// echo fgetc($handle);
-// echo fgetc($handle);
+  public function login(){
+    echo $this->name . ' logged in.';
+  }
+}
 
-// writing to a file , a+ moves pointer to end
-$handle = fopen($file, 'a+');
-fwrite($handle, "\nEverything Popular is wrong")
+// $userOne = new User();
 
-fclose($handle);
-
-// unlink($file);
+// how you access a function on an object
+// $userOne->login();
+// echo $userOne->name;
+$userTwo = new User('yoshi', 'yoshi@gmail.com');
+// echo $userTwo->name;
+// echo $userTwo->email;
+$userTwo->login();
 
 ?>
