@@ -5,8 +5,8 @@
 // instantiate a class
 
 class User {
-  public $email;
-  public $name;
+  private $email;
+  private $name;
 
   // This is how you make a constructor function
   public function __construct($name, $email){
@@ -20,6 +20,19 @@ class User {
   public function login(){
     echo $this->name . ' logged in.';
   }
+
+  public function getName(){
+    return $this->name;
+  }
+
+  public function setName($newName){
+    if(is_string($newName) && strlen($newName) > 1){
+      $this->name = $newName;
+      return "name has been updated to $newName";
+    } else {
+      return 'not a valid name';
+    }
+  }
 }
 
 // $userOne = new User();
@@ -30,6 +43,9 @@ class User {
 $userTwo = new User('yoshi', 'yoshi@gmail.com');
 // echo $userTwo->name;
 // echo $userTwo->email;
-$userTwo->login();
+// echo $userTwo->getName();
+// echo $userTwo->setName(50);
+echo $userTwo->setName('shaun');
+echo $userTwo->getName();
 
 ?>
